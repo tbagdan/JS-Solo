@@ -11,6 +11,7 @@
 // localStorage.removeItem('key)
 // localStorage.clear()
 
+'use strict'
 
 let notes = getSavedNotes()
 

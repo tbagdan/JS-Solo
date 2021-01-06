@@ -1,3 +1,5 @@
+'use strict'
+
 // Generate random id
 let guid = () => {
     let s4 = () => {
@@ -13,9 +15,13 @@ let guid = () => {
 const getSavedNotes = () => {
     const notesJSON = localStorage.getItem('notes')
 
-    if(notesJSON !== null){
-        return JSON.parse(notesJSON)
-    } else{
+    try{
+        if(notesJSON !== null){
+            return JSON.parse(notesJSON)
+        } else{
+            return []
+        }
+    } catch(e){
         return []
     }
 }
