@@ -6,7 +6,7 @@ const noteId = location.hash.substring(1)
 let notes = getSavedNotes() //return an array with notes
 let note = notes.find((note) => note.id === noteId)
 
-if(note === undefined){
+if(!note){ //falsy
     location.assign('index.html')
 }
 
@@ -39,7 +39,7 @@ window.addEventListener('storage', (e) =>{
         notes = JSON.parse(e.newValue)
         note = notes.find((note) => note.id === noteId)
         
-        if(note === undefined){
+        if(!note){ //if note === undefined
             location.assign('index.html')
         }
         
